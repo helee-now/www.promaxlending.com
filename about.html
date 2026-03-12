@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | ProMax Lending</title>
+  <meta name="description" content="Learn about ProMax Lending and our client-first mortgage approach." />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <img class="brand-logo" src="assets/promax-logo-white.jpg" alt="ProMax Lending" />
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a class="active" href="about.html">About</a>
+        <div class="nav-item">
+          <a href="loan-purpose.html">Loan Purpose</a>
+          <div class="submenu" aria-label="Loan purpose submenu">
+            <a href="loan-purpose.html#purpose-purchase"><strong>Purchase</strong>Home financing for buying a property.</a>
+            <a href="loan-purpose.html#purpose-rate-term-refinance"><strong>Rate &amp; Term Refinance</strong>Reduce your rate, change term, or both.</a>
+            <a href="loan-purpose.html#purpose-cash-out-refinance"><strong>Cash-out Refinance</strong>Access home equity for other financial goals.</a>
+          </div>
+        </div>
+        <a href="loan-programs.html">Loan Programs</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container split">
+        <div class="accent-panel">
+          <span class="eyebrow" style="background: rgba(255,255,255,0.12); color: white;">About ProMax Lending</span>
+          <h1 class="section-title" style="margin-top:16px; color:white;">Professional guidance built on trust and clarity.</h1>
+          <p>
+            At ProMax Lending, the goal is simple: help clients make informed mortgage decisions with confidence. Whether you are buying your first home, moving up, refinancing, or investing, we work to simplify the path and keep communication clear.
+          </p>
+          <div class="license-box">
+            NMLS ID: 1193351 | Equal Housing Lender
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <div class="icon">01</div>
+            <h3>Client-First Service</h3>
+            <p>Every recommendation starts with your goals, timeline, and financial picture.</p>
+          </div>
+          <div class="card">
+            <div class="icon">02</div>
+            <h3>Simple Communication</h3>
+            <p>We break down rates, terms, and tradeoffs into practical next steps.</p>
+          </div>
+          <div class="card">
+            <div class="icon">03</div>
+            <h3>Responsive Support</h3>
+            <p>Questions are answered quickly so your transaction keeps moving forward.</p>
+          </div>
+          <div class="card">
+            <div class="icon">04</div>
+            <h3>Modern Process</h3>
+            <p>Digital-friendly workflows make document collection and follow-up easier.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="compliance" aria-label="Mortgage compliance disclosures">
+        <h4>Mortgage Compliance Disclosures</h4>
+        <p>
+          ProMax Lending is an Equal Housing Lender. NMLS Consumer Access:
+          <a href="https://www.nmlsconsumeraccess.org/" target="_blank" rel="noopener noreferrer">nmlsconsumeraccess.org</a>.
+          NMLS ID: 1193351. ProMax Lending is a licensed mortgage company in the state of California.
+        </p>
+      </div>
+      <div class="footer-row">
+        <div>
+          <strong>ProMax Lending</strong><br />
+          <span class="small">Home financing guidance with clarity and care.</span>
+        </div>
+        <div class="footer-meta">
+          <img class="ehl-logo" src="assets/equal-housing-lender.png" alt="Equal Housing Lender" />
+          <div class="small">© <span id="year"></span> ProMax Lending. All rights reserved.</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
