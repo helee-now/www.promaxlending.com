@@ -299,44 +299,65 @@ header {
   margin-top: 28px;
 }
 
+.contact-form-card {
+  border-radius: 20px;
+}
+
+.contact-form-card h2 {
+  font-size: clamp(28px, 3.2vw, 38px);
+  margin-bottom: 8px;
+}
+
 .contact-form-card .contact-note {
-  font-size: 14px;
-  margin-bottom: 14px;
+  font-size: 15px;
+  margin-bottom: 16px;
+  line-height: 1.55;
 }
 
 .contact-form-card .contact-note a {
   text-decoration: underline;
   text-underline-offset: 2px;
+  color: var(--primary);
 }
 
 .contact-utility-links {
   display: flex;
   flex-wrap: wrap;
   gap: 10px 14px;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .contact-utility-links a {
-  font-size: 14px;
-  text-decoration: underline;
-  text-underline-offset: 2px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(15, 90, 69, 0.22);
+  background: rgba(15, 90, 69, 0.07);
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-size: 13px;
+  font-weight: 600;
   color: var(--primary);
+  text-decoration: none;
+}
+
+.contact-utility-links a:hover {
+  background: rgba(15, 90, 69, 0.12);
 }
 
 .contact-form {
   display: grid;
-  gap: 14px;
+  gap: 16px;
 }
 
 .form-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
+  gap: 16px;
 }
 
 .form-field {
   display: grid;
-  gap: 6px;
+  gap: 7px;
 }
 
 .form-field label {
@@ -351,23 +372,29 @@ header {
 
 .form-field input,
 .form-field textarea {
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
   width: 100%;
   border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 12px;
+  padding: 12px 14px;
   font: inherit;
+  font-size: 16px;
   color: var(--text);
-  background: #fff;
+  background: #fff !important;
+  box-shadow: inset 0 1px 1px rgba(16, 24, 40, 0.04);
 }
 
 .form-field textarea {
   resize: vertical;
-  min-height: 120px;
+  min-height: 132px;
 }
 
 .form-field input:focus,
 .form-field textarea:focus {
-  outline: 2px solid rgba(15, 90, 69, 0.2);
+  outline: 2px solid rgba(15, 90, 69, 0.18);
+  outline-offset: 1px;
   border-color: var(--primary);
 }
 
@@ -386,7 +413,11 @@ header {
   align-items: start;
   font-size: 13px;
   color: var(--muted);
-  line-height: 1.5;
+  line-height: 1.6;
+  background: rgba(15, 90, 69, 0.04);
+  border: 1px solid rgba(15, 90, 69, 0.16);
+  border-radius: 12px;
+  padding: 12px;
 }
 
 .consent-box input {
@@ -401,6 +432,10 @@ header {
 .contact-details-card p {
   margin-bottom: 14px;
   line-height: 1.5;
+}
+
+.contact-form .btn {
+  justify-self: start;
 }
 
 .contact-details-card a {
