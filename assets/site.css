@@ -451,6 +451,26 @@ header {
   justify-self: start;
 }
 
+.contact-form .btn[disabled] {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.form-status {
+  margin: 4px 0 0;
+  min-height: 22px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.form-status.is-success {
+  color: #067647;
+}
+
+.form-status.is-error {
+  color: #b42318;
+}
+
 .contact-details-card a {
   color: var(--primary);
   text-decoration: underline;

@@ -4,66 +4,140 @@
     yearEl.textContent = new Date().getFullYear();
   }
 
-  const nav = document.querySelector(".nav");
-  const navLinks = document.getElementById("primary-nav");
-  if (!nav || !navLinks) {
-    return;
-  }
+  const contactForm = document.querySelector(".contact-form");
+  if (contactForm) {
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const statusEl = contactForm.querySelector("[data-form-status]");
 
-  const navToggle = nav.querySelector(".nav-toggle");
-  const loanPurposeItem = nav.querySelector(".nav-item");
-  const loanPurposeLink = loanPurposeItem ? loanPurposeItem.querySelector("a") : null;
-  const mobileWidth = 980;
-
-  const closeMobileNav = () => {
-    navLinks.classList.remove("is-open");
-    if (navToggle) {
-      navToggle.setAttribute("aria-expanded", "false");
-    }
-    if (loanPurposeItem) {
-      loanPurposeItem.classList.remove("open");
-    }
-  };
-
-  if (navToggle) {
-    navToggle.addEventListener("click", () => {
-      const isOpen = navLinks.classList.toggle("is-open");
-      navToggle.setAttribute("aria-expanded", String(isOpen));
-      if (!isOpen && loanPurposeItem) {
-        loanPurposeItem.classList.remove("open");
+    const setStatus = (message, type) => {
+      if (!statusEl) {
+        return;
       }
-    });
-  }
+      statusEl.textContent = message;
+      statusEl.classList.remove("is-success", "is-error");
+      if (type) {
+        statusEl.classList.add(type);
+      }
+    };
 
-  if (loanPurposeItem && loanPurposeLink) {
-    loanPurposeLink.addEventListener("click", (event) => {
-      if (window.innerWidth > mobileWidth) {
+    contactForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      setStatus("", null);
+
+      if (!contactForm.reportValidity()) {
         return;
       }
 
-      const isOpen = loanPurposeItem.classList.contains("open");
-      if (!isOpen) {
-        event.preventDefault();
-        loanPurposeItem.classList.add("open");
+      const formData = new FormData(contactForm);
+      const payload = {
+        first_name: formData.get("first_name"),
+        last_name: formData.get("last_name"),
+        email: formData.get("email"),
+        phone: formData.get("phone"),
+        message: formData.get("message"),
+        website: formData.get("website"),
+        contact_consent: formData.get("contact_consent") === "on",
+      };
+
+      if (submitButton) {
+        submitButton.disabled = true;
+      }
+      setStatus("Submitting your request...", null);
+
+      try {
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(payload),
+        });
+
+        let data = {};
+        try {
+          data = await response.json();
+        } catch (_error) {
+          data = {};
+        }
+
+        if (!response.ok || !data.ok) {
+          throw new Error(data.message || "Unable to send your request right now.");
+        }
+
+        contactForm.reset();
+        setStatus("Thank you. Your request has been sent successfully.", "is-success");
+      } catch (_error) {
+        setStatus(
+          "We could not send your request right now. Please call (949) 288-3016 or email info@promaxlending.com.",
+          "is-error"
+        );
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+        }
       }
     });
   }
 
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > mobileWidth) {
+  const nav = document.querySelector(".nav");
+  const navLinks = document.getElementById("primary-nav");
+  if (nav && navLinks) {
+    const navToggle = nav.querySelector(".nav-toggle");
+    const loanPurposeItem = nav.querySelector(".nav-item");
+    const loanPurposeLink = loanPurposeItem ? loanPurposeItem.querySelector("a") : null;
+    const mobileWidth = 980;
+
+    const closeMobileNav = () => {
       navLinks.classList.remove("is-open");
-      if (loanPurposeItem) {
-        loanPurposeItem.classList.remove("open");
-      }
       if (navToggle) {
         navToggle.setAttribute("aria-expanded", "false");
       }
-    }
-  });
+      if (loanPurposeItem) {
+        loanPurposeItem.classList.remove("open");
+      }
+    };
 
-  document.addEventListener("click", (event) => {
-    if (!nav.contains(event.target)) {
-      closeMobileNav();
+    if (navToggle) {
+      navToggle.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("is-open");
+        navToggle.setAttribute("aria-expanded", String(isOpen));
+        if (!isOpen && loanPurposeItem) {
+          loanPurposeItem.classList.remove("open");
+        }
+      });
     }
-  });
+
+    if (loanPurposeItem && loanPurposeLink) {
+      loanPurposeLink.addEventListener("click", (event) => {
+        if (window.innerWidth > mobileWidth) {
+          return;
+        }
+
+        const isOpen = loanPurposeItem.classList.contains("open");
+        if (!isOpen) {
+          event.preventDefault();
+          loanPurposeItem.classList.add("open");
+        }
+      });
+    }
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > mobileWidth) {
+        navLinks.classList.remove("is-open");
+        if (loanPurposeItem) {
+          loanPurposeItem.classList.remove("open");
+        }
+        if (navToggle) {
+          navToggle.setAttribute("aria-expanded", "false");
+        }
+      }
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!nav.contains(event.target)) {
+        closeMobileNav();
+      }
+    });
+  }
 })();

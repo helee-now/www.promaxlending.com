@@ -49,10 +49,10 @@
 
             <div class="contact-utility-links">
               <a href="#">Privacy Act form</a>
-              <a href="#">SMS Opt-In form</a>
+              <a href="#">Communication Preferences</a>
             </div>
 
-            <form class="contact-form" action="#" method="post">
+            <form class="contact-form" action="/api/contact" method="post" novalidate>
               <div class="honeypot-field">
                 <label for="website">Website</label>
                 <input id="website" name="website" type="text" autocomplete="off" tabindex="-1" />
@@ -82,14 +82,15 @@
                 <textarea id="message" name="message" rows="5" required></textarea>
               </div>
 
-              <label class="consent-box" for="sms-consent">
-                <input id="sms-consent" name="sms_consent" type="checkbox" required />
+              <label class="consent-box" for="contact-consent">
+                <input id="contact-consent" name="contact_consent" type="checkbox" required />
                 <span>
-                  By submitting this form, you agree to receive account notifications and customer service text messages from ProMax Lending at the number provided. Message frequency varies. Message and data rates may apply. Reply STOP to cancel, HELP for help. Consent is not a condition of any loan or service. View our <a href="#">Privacy Policy</a> and <a href="#">Terms and Conditions</a>.
+                  By submitting this form, you consent to ProMax Lending contacting you by email and phone regarding your inquiry. Consent is not a condition of any loan or service. View our <a href="#">Privacy Policy</a> and <a href="#">Terms and Conditions</a>.
                 </span>
               </label>
 
               <button class="btn btn-primary" type="submit">Ready to Submit</button>
+              <p class="form-status" data-form-status role="status" aria-live="polite"></p>
             </form>
           </div>
 
