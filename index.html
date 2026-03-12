@@ -378,6 +378,45 @@
       padding-top: 24px;
     }
 
+    .compliance {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 18px;
+      color: var(--muted);
+    }
+
+    .compliance h4 {
+      margin: 0 0 10px;
+      color: var(--text);
+      font-size: 15px;
+      letter-spacing: -0.01em;
+    }
+
+    .compliance p {
+      margin: 0 0 10px;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .compliance p:last-child {
+      margin-bottom: 0;
+    }
+
+    .compliance-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 10px;
+      font-size: 13px;
+    }
+
+    .compliance-links a {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
     .small { font-size: 14px; }
 
     .license-box {
@@ -475,7 +514,7 @@
             At ProMax Lending, the goal is simple: help clients make informed mortgage decisions with confidence. Whether you are buying your first home, moving up, refinancing, or investing, we work to simplify the path and keep communication clear.
           </p>
           <div class="license-box">
-            Replace this section with your NMLS ID, license details, equal housing lender statement, and any required disclosures for your state.
+            NMLS ID: 1193351 | DRE License: 01916948 | Equal Housing Lender
           </div>
         </div>
         <div class="grid-2">
@@ -599,7 +638,7 @@
         </p>
         <div class="cta-actions">
           <a class="btn btn-light" href="#contact">Request a Consultation</a>
-          <a class="btn btn-outline-light" href="tel:+1-000-000-0000">Call (000) 000-0000</a>
+          <a class="btn btn-outline-light" href="tel:+19492883016">Call (949) 288-3016</a>
         </div>
       </div>
     </section>
@@ -609,13 +648,13 @@
         <div class="card">
           <span class="eyebrow">Contact</span>
           <h2 class="section-title">Connect with ProMax Lending</h2>
-          <p class="section-copy" style="margin-bottom: 18px;">
-            Replace the placeholders below with your actual business contact information, licensing details, and preferred call-to-action.
-          </p>
-          <p><strong>Phone:</strong> (000) 000-0000</p>
-          <p><strong>Email:</strong> hello@promaxlending.com</p>
+          <p class="section-copy" style="margin-bottom: 18px;">Reach out to discuss your home financing goals.</p>
+          <p><strong>Phone:</strong> (949) 288-3016</p>
+          <p><strong>Email:</strong> info@promaxlending.com</p>
+          <p><strong>Address:</strong> 4482 Barranca Parkway, #123, Irvine, CA 92604</p>
           <p><strong>Service Area:</strong> Add the states or regions you serve</p>
           <p><strong>Office Hours:</strong> Mon–Fri, 9:00 AM – 6:00 PM</p>
+          <p><strong>Licensing:</strong> NMLS 1193351 | DRE 01916948</p>
         </div>
         <div class="card">
           <h3 style="margin-bottom: 16px;">Website Content Checklist</h3>
@@ -632,13 +671,34 @@
   </main>
 
   <footer>
-    <div class="container footer-row">
-      <div>
-        <strong>ProMax Lending</strong><br />
-        <span class="small">Home financing guidance with clarity and care.</span>
+    <div class="container">
+      <div class="compliance" aria-label="Mortgage compliance disclosures">
+        <h4>Mortgage Compliance Disclosures</h4>
+        <p>
+          ProMax Lending is an Equal Housing Lender. NMLS Consumer Access:
+          <a href="https://www.nmlsconsumeraccess.org/" target="_blank" rel="noopener noreferrer">nmlsconsumeraccess.org</a>.
+          NMLS ID: 1193351. DRE License: 01916948.
+        </p>
+        <p>
+          This website is for informational purposes only and is not a commitment to lend. All loans are subject to credit approval, underwriting guidelines, and property appraisal. Terms, rates, and program availability may change without notice.
+        </p>
+        <p>
+          ProMax Lending does not discriminate on the basis of race, color, religion, national origin, sex, marital status, age, receipt of public assistance, or because a consumer has exercised rights under the Consumer Credit Protection Act.
+        </p>
+        <div class="compliance-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Accessibility Statement</a>
+        </div>
       </div>
-      <div class="small">
-        © <span id="year"></span> ProMax Lending. All rights reserved.
+      <div class="footer-row">
+        <div>
+          <strong>ProMax Lending</strong><br />
+          <span class="small">Home financing guidance with clarity and care.</span>
+        </div>
+        <div class="small">
+          © <span id="year"></span> ProMax Lending. All rights reserved.
+        </div>
       </div>
     </div>
   </footer>
