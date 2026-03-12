@@ -38,6 +38,25 @@ header {
   border-bottom: 1px solid rgba(230, 234, 240, 0.8);
 }
 
+.page-banner {
+  padding: 18px 0 8px;
+}
+
+.page-banner-shell {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  background: var(--surface);
+}
+
+.page-banner-image {
+  width: 100%;
+  height: clamp(180px, 28vw, 310px);
+  object-fit: cover;
+  object-position: center;
+}
+
 .nav {
   display: flex;
   align-items: center;
@@ -683,6 +702,12 @@ footer {
   .nav-item.open .submenu {
     display: block;
   }
+  .page-banner {
+    padding-top: 14px;
+  }
+  .page-banner-image {
+    height: clamp(165px, 34vw, 240px);
+  }
 }
 
 @media (max-width: 640px) {
@@ -701,5 +726,11 @@ footer {
   .compliance p {
     font-size: 12px;
     line-height: 1.65;
+  }
+  .page-banner {
+    padding-top: 12px;
+  }
+  .page-banner-image {
+    height: 160px;
   }
 }
