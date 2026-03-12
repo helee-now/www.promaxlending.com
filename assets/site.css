@@ -52,7 +52,7 @@ header {
 }
 
 .brand-logo {
-  width: 180px;
+  width: 220px;
   height: auto;
 }
 
@@ -671,7 +671,7 @@ footer {
   .hero-card, .accent-panel, .cta, .card { padding: 22px; }
   .btn { width: 100%; }
   .hero-actions, .cta-actions { flex-direction: column; }
-  .brand-logo { width: 145px; }
+  .brand-logo { width: 175px; }
   .footer-row,
   .footer-meta {
     flex-direction: column;
