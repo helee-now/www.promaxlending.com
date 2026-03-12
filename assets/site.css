@@ -444,6 +444,25 @@ header {
   text-underline-offset: 2px;
 }
 
+.contact-office-panel p {
+  margin-bottom: 14px;
+}
+
+.contact-office-panel strong {
+  color: #fff;
+}
+
+.contact-office-panel a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.office-actions {
+  margin-top: 18px;
+  margin-bottom: 0;
+}
+
 .split {
   display: grid;
   grid-template-columns: 0.95fr 1.05fr;
