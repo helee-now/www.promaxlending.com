@@ -136,6 +136,50 @@
 
     .nav-links a:hover { color: var(--primary); }
 
+    .nav-item {
+      position: relative;
+    }
+
+    .submenu {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      min-width: 270px;
+      padding: 8px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      display: none;
+      z-index: 60;
+    }
+
+    .submenu a {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .submenu a strong {
+      display: block;
+      color: var(--text);
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+
+    .submenu a:hover {
+      background: rgba(15, 90, 69, 0.08);
+      color: var(--primary);
+    }
+
+    .nav-item:hover .submenu,
+    .nav-item:focus-within .submenu {
+      display: block;
+    }
+
     .hero {
       padding: 72px 0 40px;
     }
@@ -435,6 +479,11 @@
       .hero-points { grid-template-columns: 1fr; }
       .nav { align-items: flex-start; padding: 14px 0; }
       .nav-links { gap: 14px; }
+      .submenu {
+        position: static;
+        min-width: 0;
+        margin-top: 6px;
+      }
     }
 
     @media (max-width: 640px) {
@@ -455,6 +504,23 @@
       </a>
       <nav class="nav-links">
         <a href="#about">About</a>
+        <div class="nav-item">
+          <a href="#loan-purpose">Loan Purpose</a>
+          <div class="submenu" aria-label="Loan purpose submenu">
+            <a href="#purpose-purchase">
+              <strong>Purchase</strong>
+              Home financing for buying a property.
+            </a>
+            <a href="#purpose-rate-term-refinance">
+              <strong>Rate &amp; Term Refinance</strong>
+              Reduce your rate, change term, or both.
+            </a>
+            <a href="#purpose-cash-out-refinance">
+              <strong>Cash-out Refinance</strong>
+              Access home equity for other financial goals.
+            </a>
+          </div>
+        </div>
         <a href="#programs">Loan Programs</a>
         <a href="#process">Process</a>
         <a href="#reviews">Reviews</a>
@@ -537,6 +603,36 @@
             <div class="icon">04</div>
             <h3>Modern Process</h3>
             <p>Digital-friendly workflows make document collection and follow-up easier.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="loan-purpose">
+      <div class="container">
+        <span class="eyebrow">Loan Purpose</span>
+        <h2 class="section-title">Choose the loan purpose that fits your goals.</h2>
+        <p class="section-copy">
+          Different mortgage goals require different strategies. These common loan purposes help define the right path before choosing a specific program.
+        </p>
+        <div class="grid-3" style="margin-top: 28px;">
+          <div class="card" id="purpose-purchase">
+            <h3>Purchase</h3>
+            <p>
+              Designed for homebuyers purchasing a primary residence, second home, or investment property. We help you align budget, down payment, and monthly payment expectations before you make an offer.
+            </p>
+          </div>
+          <div class="card" id="purpose-rate-term-refinance">
+            <h3>Rate &amp; Term Refinance</h3>
+            <p>
+              Focused on improving your current mortgage by lowering your interest rate, changing the loan term, or both. This can help reduce monthly payments or pay off your loan faster depending on your priorities.
+            </p>
+          </div>
+          <div class="card" id="purpose-cash-out-refinance">
+            <h3>Cash-out Refinance</h3>
+            <p>
+              Allows you to refinance and convert a portion of your home equity into cash. Common uses include debt consolidation, home improvements, and funding major expenses while keeping financing in one mortgage.
+            </p>
           </div>
         </div>
       </div>
