@@ -32,30 +32,79 @@
 
   <main>
     <section class="section">
-      <div class="container grid-2">
-        <div class="card">
-          <span class="eyebrow">Contact</span>
-          <h1 class="section-title">Connect with ProMax Lending</h1>
-          <p class="section-copy" style="margin-bottom: 18px;">Reach out to discuss your home financing goals.</p>
-          <p><strong>Phone:</strong> (949) 288-3016</p>
-          <p><strong>Email:</strong> info@promaxlending.com</p>
-          <p><strong>Address:</strong> 4482 Barranca Parkway, #123, Irvine, CA 92604</p>
-          <p><strong>Service Area:</strong> Add the states or regions you serve</p>
-          <p><strong>Office Hours:</strong> Mon-Fri, 9:00 AM - 6:00 PM</p>
-          <p><strong>Licensing:</strong> NMLS 1193351</p>
-          <div class="hero-actions" style="margin-top:18px;">
-            <a class="btn btn-primary" href="tel:+19492883016">Call (949) 288-3016</a>
-            <a class="btn btn-secondary" href="mailto:info@promaxlending.com">Email Us</a>
+      <div class="container">
+        <span class="eyebrow">Contact Us</span>
+        <h1 class="section-title">Get In Touch</h1>
+        <p class="section-copy">
+          Reach out to us and we will respond as soon as we can. If you are ready to discuss a purchase or refinance scenario, submit the form below and our team will follow up quickly.
+        </p>
+
+        <div class="contact-page-grid">
+          <div class="card contact-form-card">
+            <h2>Send a Message</h2>
+            <p class="contact-note">
+              Please read how we protect your information in our <a href="#">Privacy Policy</a>.
+            </p>
+
+            <div class="contact-utility-links">
+              <a href="#">Privacy Act form</a>
+              <a href="#">SMS Opt-In form</a>
+            </div>
+
+            <form class="contact-form" action="#" method="post">
+              <div class="honeypot-field">
+                <label for="website">Website</label>
+                <input id="website" name="website" type="text" autocomplete="off" tabindex="-1" />
+              </div>
+
+              <div class="form-grid">
+                <div class="form-field">
+                  <label for="first-name">First Name <span class="required-marker">*</span></label>
+                  <input id="first-name" name="first_name" type="text" required />
+                </div>
+                <div class="form-field">
+                  <label for="last-name">Last Name <span class="required-marker">*</span></label>
+                  <input id="last-name" name="last_name" type="text" required />
+                </div>
+                <div class="form-field">
+                  <label for="email">Email <span class="required-marker">*</span></label>
+                  <input id="email" name="email" type="email" required />
+                </div>
+                <div class="form-field">
+                  <label for="phone">Phone <span class="required-marker">*</span></label>
+                  <input id="phone" name="phone" type="tel" required />
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="message">Comment or Message <span class="required-marker">*</span></label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+              </div>
+
+              <label class="consent-box" for="sms-consent">
+                <input id="sms-consent" name="sms_consent" type="checkbox" required />
+                <span>
+                  By submitting this form, you agree to receive account notifications and customer service text messages from ProMax Lending at the number provided. Message frequency varies. Message and data rates may apply. Reply STOP to cancel, HELP for help. Consent is not a condition of any loan or service. View our <a href="#">Privacy Policy</a> and <a href="#">Terms and Conditions</a>.
+                </span>
+              </label>
+
+              <button class="btn btn-primary" type="submit">Ready to Submit</button>
+            </form>
           </div>
-        </div>
-        <div class="cta">
-          <span class="eyebrow" style="background: rgba(255,255,255,0.12); color: white;">Let's Talk</span>
-          <h2 class="section-title" style="margin-top:16px; color:white;">Ready to explore your mortgage options?</h2>
-          <p>Start with a conversation about your goals, timeline, and financing questions. ProMax Lending is here to help you move forward with clarity.</p>
-          <div class="cta-actions">
-            <a class="btn btn-light" href="tel:+19492883016">Call Now</a>
-            <a class="btn btn-outline-light" href="mailto:info@promaxlending.com">Send Email</a>
-          </div>
+
+          <aside class="card contact-details-card">
+            <h2>Main Office</h2>
+            <p><strong>Address:</strong><br />4482 Barranca Parkway, #123<br />Irvine, CA 92604</p>
+            <p><strong>Call us at:</strong><br /><a href="tel:+19492883016">(949) 288-3016</a></p>
+            <p><strong>Email:</strong><br /><a href="mailto:info@promaxlending.com">info@promaxlending.com</a></p>
+            <p><strong>Office Hours:</strong><br />Mon-Fri, 9:00 AM - 6:00 PM</p>
+            <p><strong>Licensing:</strong><br />NMLS 1193351</p>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="tel:+19492883016">Call Now</a>
+              <a class="btn btn-secondary" href="mailto:info@promaxlending.com">Email Us</a>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
