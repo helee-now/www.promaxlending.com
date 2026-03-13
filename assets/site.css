@@ -172,6 +172,7 @@ header {
 
 .section {
   padding: 84px 0;
+  padding-bottom: 20px;
 }
 
 .eyebrow {
