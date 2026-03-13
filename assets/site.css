@@ -21,6 +21,23 @@ body {
   line-height: 1.6;
 }
 
+body.has-page-bg {
+  background-color: #dfe5ea;
+  background-image:
+    linear-gradient(rgba(247, 248, 250, 0.48), rgba(247, 248, 250, 0.48)),
+    var(--page-bg-image);
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
+  background-size: cover, cover;
+  background-attachment: fixed, fixed;
+}
+
+body.page-home { --page-bg-image: url("site_images/pmx-sky-neighborhood.jpg"); }
+body.page-about { --page-bg-image: url("site_images/pmx-casual-meeting.jpg"); }
+body.page-loan-purpose { --page-bg-image: url("site_images/pmx-big-house-key.jpg"); }
+body.page-loan-programs { --page-bg-image: url("site_images/pmx-work.jpg"); }
+body.page-contact { --page-bg-image: url("site_images/pmx-round-table.jpg"); }
+
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 
@@ -39,6 +56,7 @@ header {
 }
 
 .page-banner {
+  display: none;
   padding: 18px 0 8px;
 }
 
@@ -588,23 +606,31 @@ footer {
 
 .compliance {
   border: 1px solid var(--border);
-  background: var(--surface);
-  border-radius: 14px;
-  padding: 18px;
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: 16px;
+  padding: 20px 22px;
   margin-bottom: 18px;
   color: var(--muted);
+  box-shadow: 0 6px 22px rgba(16, 24, 40, 0.06);
 }
 
 .compliance h4 {
-  margin: 0 0 10px;
+  margin: 0 0 14px;
   color: var(--text);
-  font-size: 15px;
+  font-size: 17px;
+  letter-spacing: -0.01em;
 }
 
 .compliance p {
-  margin: 0 0 10px;
-  font-size: 13px;
-  line-height: 1.55;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.72;
+}
+
+.compliance p + p {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(24, 33, 47, 0.08);
 }
 
 .compliance p:last-child { margin-bottom: 0; }
@@ -612,12 +638,21 @@ footer {
 .compliance-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 10px;
+  gap: 10px 14px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(24, 33, 47, 0.08);
   font-size: 13px;
+  font-weight: 600;
 }
 
 .compliance-links a {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 90, 69, 0.18);
+  background: rgba(15, 90, 69, 0.06);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
@@ -725,7 +760,13 @@ footer {
   .ehl-logo { width: 72px; }
   .compliance p {
     font-size: 12px;
-    line-height: 1.65;
+    line-height: 1.7;
+  }
+  .compliance-links {
+    gap: 8px;
+  }
+  .compliance-links a {
+    padding: 5px 9px;
   }
   .page-banner {
     padding-top: 12px;
