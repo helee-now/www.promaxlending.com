@@ -35,6 +35,7 @@
         "/api/contact";
 
       const formData = new FormData(contactForm);
+      const pageLanguage = (document.documentElement.lang || "en").trim() || "en";
       const payload = {
         first_name: formData.get("first_name"),
         last_name: formData.get("last_name"),
@@ -43,6 +44,7 @@
         message: formData.get("message"),
         website: formData.get("website"),
         contact_consent: formData.get("contact_consent") === "on",
+        page_language: pageLanguage,
       };
 
       if (submitButton) {
