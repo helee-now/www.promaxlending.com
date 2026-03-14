@@ -126,6 +126,33 @@ header {
 .nav-links a:hover,
 .nav-links a.active { color: var(--primary); }
 
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.lang-switch span {
+  opacity: 0.5;
+}
+
+.lang-switch a {
+  color: inherit;
+}
+
+.lang-switch a.active,
+.lang-switch a:hover {
+  color: var(--primary);
+}
+
 .nav-item {
   position: relative;
 }
@@ -785,6 +812,9 @@ footer {
     margin-left: auto;
     min-height: 44px;
   }
+  .lang-switch {
+    margin-left: 10px;
+  }
   .nav-links {
     display: none;
     width: 100%;
@@ -798,6 +828,9 @@ footer {
     border-radius: 12px;
   }
   .nav-links.is-open { display: flex; }
+  .lang-switch {
+    order: 2;
+  }
   .nav-links > a,
   .nav-item > a {
     display: block;

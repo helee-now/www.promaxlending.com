@@ -8,6 +8,7 @@
   if (contactForm) {
     const submitButton = contactForm.querySelector('button[type="submit"]');
     const statusEl = contactForm.querySelector("[data-form-status]");
+    const getMessage = (key, fallback) => contactForm.dataset[key] || fallback;
 
     const setStatus = (message, type) => {
       if (!statusEl) {
@@ -47,7 +48,7 @@
       if (submitButton) {
         submitButton.disabled = true;
       }
-      setStatus("Submitting your request...", null);
+      setStatus(getMessage("msgSubmitting", "Submitting your request..."), null);
 
       try {
         const response = await fetch(endpoint, {
@@ -67,14 +68,20 @@
         }
 
         if (!response.ok || !data.ok) {
-          throw new Error(data.message || "Unable to send your request right now.");
+          throw new Error(data.message || getMessage("msgFailure", "Unable to send your request right now."));
         }
 
         contactForm.reset();
-        setStatus("Thank you. Your request has been sent successfully.", "is-success");
+        setStatus(
+          getMessage("msgSuccess", "Thank you. Your request has been sent successfully."),
+          "is-success"
+        );
       } catch (_error) {
         setStatus(
-          "We could not send your request right now. Please call (949) 288-3016 or email info@promaxlending.com.",
+          getMessage(
+            "msgFailure",
+            "We could not send your request right now. Please call (949) 288-3016 or email info@promaxlending.com."
+          ),
           "is-error"
         );
       } finally {
@@ -89,17 +96,11 @@
   const navLinks = document.getElementById("primary-nav");
   if (nav && navLinks) {
     const navToggle = nav.querySelector(".nav-toggle");
-    const loanPurposeItem = nav.querySelector(".nav-item");
-    const loanPurposeLink = loanPurposeItem ? loanPurposeItem.querySelector("a") : null;
-    const mobileWidth = 980;
 
     const closeMobileNav = () => {
       navLinks.classList.remove("is-open");
       if (navToggle) {
         navToggle.setAttribute("aria-expanded", "false");
-      }
-      if (loanPurposeItem) {
-        loanPurposeItem.classList.remove("open");
       }
     };
 
@@ -107,32 +108,12 @@
       navToggle.addEventListener("click", () => {
         const isOpen = navLinks.classList.toggle("is-open");
         navToggle.setAttribute("aria-expanded", String(isOpen));
-        if (!isOpen && loanPurposeItem) {
-          loanPurposeItem.classList.remove("open");
-        }
-      });
-    }
-
-    if (loanPurposeItem && loanPurposeLink) {
-      loanPurposeLink.addEventListener("click", (event) => {
-        if (window.innerWidth > mobileWidth) {
-          return;
-        }
-
-        const isOpen = loanPurposeItem.classList.contains("open");
-        if (!isOpen) {
-          event.preventDefault();
-          loanPurposeItem.classList.add("open");
-        }
       });
     }
 
     window.addEventListener("resize", () => {
-      if (window.innerWidth > mobileWidth) {
+      if (window.innerWidth > 980) {
         navLinks.classList.remove("is-open");
-        if (loanPurposeItem) {
-          loanPurposeItem.classList.remove("open");
-        }
         if (navToggle) {
           navToggle.setAttribute("aria-expanded", "false");
         }
