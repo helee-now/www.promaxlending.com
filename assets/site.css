@@ -950,6 +950,30 @@ header {
   margin-bottom: 14px;
 }
 
+.office-item {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 10px;
+  align-items: start;
+  margin-bottom: 12px;
+}
+
+.office-item-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+  line-height: 1;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.office-item p {
+  margin: 0;
+}
+
 .contact-office-panel strong {
   color: #fff;
 }
