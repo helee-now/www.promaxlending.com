@@ -37,6 +37,7 @@ body.page-about { --page-bg-image: url("site_images/pmx-casual-meeting.jpg"); }
 body.page-loan-purpose { --page-bg-image: url("site_images/pmx-big-house-key.jpg"); }
 body.page-loan-programs { --page-bg-image: url("site_images/pmx-work.jpg"); }
 body.page-contact { --page-bg-image: url("site_images/pmx-round-table.jpg"); }
+body.page-process { --page-bg-image: url("site_images/pmx-work.jpg"); }
 
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
@@ -374,6 +375,18 @@ header {
   color: var(--text);
   font-size: 15px;
   font-weight: 600;
+}
+
+.trust-strip-link {
+  margin: 14px 0 0;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.trust-strip-link a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .hero-card-image {
