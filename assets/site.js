@@ -317,7 +317,7 @@
     };
 
     const updateBreakdown = (parts) => {
-      const colorSet = ["#0f5a45", "#1a7a61", "#5ca68f", "#8ec6b4", "#c9e4dc"];
+      const colorSet = ["#2563eb", "#f97316", "#ec4899", "#22c55e", "#a855f7"];
       const total = parts.reduce((sum, part) => sum + part.value, 0);
       const gradientStops = [];
       let cursor = 0;
