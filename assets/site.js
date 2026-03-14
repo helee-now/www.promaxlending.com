@@ -182,7 +182,7 @@
     };
 
     const syncDownFromPercent = () => {
-      const homeValue = clamp(asNumber(elements.homeValue.value, 400000), 50000, 50000000);
+      const homeValue = clamp(asNumber(elements.homeValue.value, 990000), 50000, 50000000);
       const percent = clamp(asNumber(elements.downPercent.value, 20), 0, 95);
       const downAmount = homeValue * (percent / 100);
       elements.downPercent.value = percent.toFixed(2);
@@ -191,7 +191,7 @@
     };
 
     const syncDownFromAmount = () => {
-      const homeValue = clamp(asNumber(elements.homeValue.value, 400000), 50000, 50000000);
+      const homeValue = clamp(asNumber(elements.homeValue.value, 990000), 50000, 50000000);
       const rawDownAmount = clamp(asNumber(elements.downAmount.value, 0), 0, homeValue * 0.95);
       const percent = homeValue > 0 ? (rawDownAmount / homeValue) * 100 : 0;
       elements.downAmount.value = rawDownAmount.toFixed(2);
@@ -200,7 +200,7 @@
     };
 
     const syncInterest = (source) => {
-      const rate = clamp(asNumber(source.value, 7), 0.1, 15);
+      const rate = clamp(asNumber(source.value, 5.7), 0.1, 15);
       elements.interestRate.value = rate.toFixed(2);
       elements.interestSlider.value = rate.toFixed(2);
     };
@@ -293,17 +293,17 @@
     };
 
     const recalculate = () => {
-      const homeValue = clamp(asNumber(elements.homeValue.value, 400000), 50000, 50000000);
+      const homeValue = clamp(asNumber(elements.homeValue.value, 990000), 50000, 50000000);
       const downAmount = clamp(asNumber(elements.downAmount.value, 80000), 0, homeValue * 0.95);
       const loanAmount = Math.max(homeValue - downAmount, 0);
-      const annualRate = clamp(asNumber(elements.interestRate.value, 7), 0.1, 15) / 100;
+      const annualRate = clamp(asNumber(elements.interestRate.value, 5.7), 0.1, 15) / 100;
       const years = clamp(asNumber(elements.loanTerm.value, 30), 1, 40);
       const totalMonths = Math.round(years * 12);
       const startMonth = clamp(asNumber(elements.startMonth.value, 2), 0, 11);
       const startYear = clamp(asNumber(elements.startYear.value, 2026), 2024, 2100);
-      const annualTax = Math.max(asNumber(elements.propertyTax.value, 2700), 0);
-      const annualInsurance = Math.max(asNumber(elements.homeInsurance.value, 1500), 0);
-      const monthlyHoa = Math.max(asNumber(elements.monthlyHoa.value, 0), 0);
+      const annualTax = Math.max(asNumber(elements.propertyTax.value, 14850), 0);
+      const annualInsurance = Math.max(asNumber(elements.homeInsurance.value, 2000), 0);
+      const monthlyHoa = Math.max(asNumber(elements.monthlyHoa.value, 200), 0);
       const pmiRate = clamp(asNumber(elements.pmiRate.value, 1), 0, 5) / 100;
 
       const monthlyTax = annualTax / 12;
