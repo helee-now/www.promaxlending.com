@@ -39,6 +39,8 @@
       const htmlLanguage = document.documentElement.lang || "";
       const pathLanguage = window.location.pathname.includes("/zh/") ? "zh-CN" : "en";
       const pageLanguage = (explicitPageLanguage || htmlLanguage || pathLanguage || "en").trim() || "en";
+      const query = new URLSearchParams(window.location.search);
+      const sourcePage = `${window.location.origin}${window.location.pathname}`;
       const payload = {
         first_name: formData.get("first_name"),
         last_name: formData.get("last_name"),
@@ -48,6 +50,13 @@
         website: formData.get("website"),
         contact_consent: formData.get("contact_consent") === "on",
         page_language: pageLanguage,
+        source_page: sourcePage,
+        referrer: document.referrer || "",
+        utm_source: (formData.get("utm_source") || query.get("utm_source") || "").trim(),
+        utm_medium: (formData.get("utm_medium") || query.get("utm_medium") || "").trim(),
+        utm_campaign: (formData.get("utm_campaign") || query.get("utm_campaign") || "").trim(),
+        utm_content: (formData.get("utm_content") || query.get("utm_content") || "").trim(),
+        utm_term: (formData.get("utm_term") || query.get("utm_term") || "").trim(),
       };
 
       if (submitButton) {

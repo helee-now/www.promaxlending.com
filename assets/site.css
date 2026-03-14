@@ -342,6 +342,40 @@ header {
   font-size: 24px;
 }
 
+.trust-strip {
+  padding: 0 0 42px;
+}
+
+.trust-strip-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.trust-item {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: 0 8px 22px rgba(15, 90, 69, 0.08);
+}
+
+.trust-item strong {
+  display: block;
+  font-size: 13px;
+  color: var(--primary);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.trust-item span {
+  display: block;
+  margin-top: 4px;
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 600;
+}
+
 .hero-card-image {
   margin: 0 0 16px;
   border-radius: 16px;
@@ -799,6 +833,9 @@ footer {
   .hero-grid, .split, .grid-4, .grid-3, .grid-2, .contact-page-grid, .form-grid {
     grid-template-columns: 1fr;
   }
+  .trust-strip-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
   .hero-points { grid-template-columns: 1fr; }
   .nav {
     align-items: center;
@@ -867,6 +904,12 @@ footer {
 @media (max-width: 640px) {
   .section { padding: 64px 0; }
   .hero { padding-top: 42px; }
+  .trust-strip {
+    padding-bottom: 28px;
+  }
+  .trust-strip-grid {
+    grid-template-columns: 1fr;
+  }
   .hero-card, .accent-panel, .cta, .card { padding: 22px; }
   .hero-content-panel { padding: 22px; }
   .btn { width: 100%; }
