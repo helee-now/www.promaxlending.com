@@ -195,7 +195,7 @@
     };
 
     const syncDownFromPercent = () => {
-      const homeValue = clamp(asNumber(elements.homeValue.value, 990000), 50000, 50000000);
+      const homeValue = clamp(asNumber(elements.homeValue.value, 1180000), 50000, 50000000);
       const percent = clamp(asNumber(elements.downPercent.value, 20), 0, 95);
       const downAmount = homeValue * (percent / 100);
       elements.downPercent.value = percent.toFixed(2);
@@ -204,7 +204,7 @@
     };
 
     const syncDownFromAmount = () => {
-      const homeValue = clamp(asNumber(elements.homeValue.value, 990000), 50000, 50000000);
+      const homeValue = clamp(asNumber(elements.homeValue.value, 1180000), 50000, 50000000);
       const rawDownAmount = clamp(asNumber(elements.downAmount.value, homeValue * 0.2), 0, homeValue * 0.95);
       const percent = homeValue > 0 ? (rawDownAmount / homeValue) * 100 : 0;
       elements.downAmount.value = rawDownAmount.toFixed(2);
@@ -358,7 +358,7 @@
     };
 
     const recalculate = () => {
-      const homeValue = clamp(asNumber(elements.homeValue.value, 990000), 50000, 50000000);
+      const homeValue = clamp(asNumber(elements.homeValue.value, 1180000), 50000, 50000000);
       const downAmount = clamp(asNumber(elements.downAmount.value, homeValue * 0.2), 0, homeValue * 0.95);
       const loanAmount = Math.max(homeValue - downAmount, 0);
       const annualRate = clamp(asNumber(elements.interestRate.value, 5.7), 0.1, 15) / 100;
