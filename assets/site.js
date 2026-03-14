@@ -28,6 +28,11 @@
         return;
       }
 
+      const endpoint =
+        contactForm.getAttribute("data-api-endpoint") ||
+        contactForm.getAttribute("action") ||
+        "/api/contact";
+
       const formData = new FormData(contactForm);
       const payload = {
         first_name: formData.get("first_name"),
@@ -45,7 +50,7 @@
       setStatus("Submitting your request...", null);
 
       try {
-        const response = await fetch("/api/contact", {
+        const response = await fetch(endpoint, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
