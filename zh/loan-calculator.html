@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>贷款计算器 | ProMax Lending</title>
+  <meta name="description" content="使用 ProMax Lending 贷款计算器估算月供、比较月供与双周供，并查看还款明细。" />
+  <link rel="icon" type="image/x-icon" href="../assets/promax_favicon.ico" />
+  <link rel="stylesheet" href="../assets/site.css" />
+  <link rel="canonical" href="https://www.promaxlending.com/zh/loan-calculator.html" />
+  <link rel="alternate" hreflang="en" href="https://www.promaxlending.com/loan-calculator.html" />
+  <link rel="alternate" hreflang="zh-CN" href="https://www.promaxlending.com/zh/loan-calculator.html" />
+  <link rel="alternate" hreflang="x-default" href="https://www.promaxlending.com/loan-calculator.html" />
+</head>
+<body class="has-page-bg page-loan-calculator">
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <img class="brand-logo" src="../assets/promax-logo-white.jpg" alt="ProMax Lending" />
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">菜单</button>
+      <nav id="primary-nav" class="nav-links">
+        <a href="index.html">首页</a>
+        <a href="about.html">关于我们</a>
+        <a href="loan-purpose.html">贷款用途</a>
+        <a class="active" href="loan-programs.html">贷款产品</a>
+        <a href="contact.html">联系我们</a>
+      </nav>
+      <div class="lang-switch" aria-label="Language switcher">
+        <a href="../loan-calculator.html" lang="en">EN</a>
+        <span>/</span>
+        <a class="active" href="loan-calculator.html" lang="zh-CN">简体中文</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <span class="eyebrow">贷款计算器</span>
+        <h1 class="section-title">更清晰地预估您的房贷月供。</h1>
+        <p class="section-copy section-copy-strong">
+          通过本工具您可以模拟月供与双周供情境，快速了解费用构成。结果仅供规划参考，不构成放款承诺。
+        </p>
+      </div>
+      <div class="container loan-calc-shell" data-loan-calculator data-lang="zh">
+        <div class="loan-calc-grid">
+          <section class="loan-calc-panel card" aria-label="贷款输入参数">
+            <h2>贷款参数</h2>
+            <div class="loan-calc-fields">
+              <div class="loan-calc-field">
+                <label for="lc-home-value">房屋总价</label>
+                <div class="loan-calc-input-wrap">
+                  <span>$</span>
+                  <input id="lc-home-value" type="number" min="50000" step="1000" value="400000" />
+                </div>
+              </div>
+
+              <div class="loan-calc-field">
+                <label for="lc-down-payment-amount">首付款</label>
+                <div class="loan-calc-row-3">
+                  <div class="loan-calc-input-wrap">
+                    <span>$</span>
+                    <input id="lc-down-payment-amount" type="number" min="0" step="100" value="80000" />
+                  </div>
+                  <input id="lc-down-payment-percent" type="number" min="0" max="95" step="0.1" value="20" />
+                  <span class="loan-calc-suffix">%</span>
+                </div>
+                <input id="lc-down-payment-slider" type="range" min="0" max="95" step="0.1" value="20" />
+              </div>
+
+              <div class="loan-calc-field">
+                <label for="lc-loan-amount">贷款金额</label>
+                <div class="loan-calc-input-wrap">
+                  <span>$</span>
+                  <input id="lc-loan-amount" type="number" value="320000" readonly />
+                </div>
+              </div>
+
+              <div class="loan-calc-field">
+                <label for="lc-interest-rate">利率</label>
+                <div class="loan-calc-row-2">
+                  <input id="lc-interest-rate" type="number" min="0.1" max="15" step="0.01" value="7.00" />
+                  <span class="loan-calc-suffix">%</span>
+                </div>
+                <input id="lc-interest-slider" type="range" min="0.1" max="15" step="0.01" value="7.00" />
+              </div>
+
+              <div class="loan-calc-field">
+                <label for="lc-loan-term">贷款年限</label>
+                <div class="loan-calc-row-2">
+                  <select id="lc-loan-term">
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="30" selected>30</option>
+                  </select>
+                  <span class="loan-calc-suffix">年</span>
+                </div>
+              </div>
+
+              <div class="loan-calc-field">
+                <label for="lc-start-month">起始日期</label>
+                <div class="loan-calc-row-2">
+                  <select id="lc-start-month">
+                    <option value="0">一月</option>
+                    <option value="1">二月</option>
+                    <option value="2" selected>三月</option>
+                    <option value="3">四月</option>
+                    <option value="4">五月</option>
+                    <option value="5">六月</option>
+                    <option value="6">七月</option>
+                    <option value="7">八月</option>
+                    <option value="8">九月</option>
+                    <option value="9">十月</option>
+                    <option value="10">十一月</option>
+                    <option value="11">十二月</option>
+                  </select>
+                  <input id="lc-start-year" type="number" min="2024" max="2100" step="1" value="2026" />
+                </div>
+              </div>
+
+              <div class="loan-calc-field">
+                <label for="lc-property-tax">房产税</label>
+                <div class="loan-calc-row-2">
+                  <input id="lc-property-tax" type="number" min="0" step="10" value="2700" />
+                  <span class="loan-calc-suffix">$/年</span>
+                </div>
+              </div>
+
+              <div class="loan-calc-field">
+                <label for="lc-pmi-rate">PMI</label>
+                <div class="loan-calc-row-2">
+                  <input id="lc-pmi-rate" type="number" min="0" max="5" step="0.01" value="1.00" />
+                  <span class="loan-calc-suffix">%</span>
+                </div>
+                <input id="lc-pmi-slider" type="range" min="0" max="5" step="0.01" value="1.00" />
+              </div>
+
+              <div class="loan-calc-field">
+                <label for="lc-home-insurance">房屋保险</label>
+                <div class="loan-calc-row-2">
+                  <input id="lc-home-insurance" type="number" min="0" step="10" value="1500" />
+                  <span class="loan-calc-suffix">$/年</span>
+                </div>
+              </div>
+
+              <div class="loan-calc-field">
+                <label for="lc-monthly-hoa">月 HOA</label>
+                <div class="loan-calc-input-wrap">
+                  <span>$</span>
+                  <input id="lc-monthly-hoa" type="number" min="0" step="10" value="0" />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="loan-calc-results" aria-label="计算结果">
+            <article class="card loan-calc-summary-card">
+              <p class="loan-calc-eyebrow">预计月供</p>
+              <h2 id="lc-monthly-payment">$0.00</h2>
+              <p>预计每月总还款额。</p>
+              <div class="loan-calc-mini-grid">
+                <div><span>月房产税</span><strong id="lc-monthly-tax">$0.00</strong></div>
+                <div><span>月保险/PMI/HOA</span><strong id="lc-monthly-insurance">$0.00</strong></div>
+              </div>
+            </article>
+
+            <article class="card loan-calc-breakdown-card">
+              <h3>贷款构成</h3>
+              <div class="loan-calc-chart-wrap">
+                <div id="lc-breakdown-chart" class="loan-calc-donut" aria-label="贷款构成图"></div>
+                <ul id="lc-breakdown-list" class="loan-calc-breakdown-list"></ul>
+              </div>
+              <button id="lc-toggle-amortization" class="btn btn-secondary" type="button">显示还款明细表</button>
+            </article>
+
+            <article class="card loan-calc-details-card">
+              <h3>贷款明细</h3>
+              <dl class="loan-calc-stats">
+                <div><dt>贷款金额</dt><dd id="lc-detail-loan">$0.00</dd></div>
+                <div><dt>首付款</dt><dd id="lc-detail-down">$0.00</dd></div>
+                <div><dt>总利息</dt><dd id="lc-detail-interest">$0.00</dd></div>
+                <div><dt>总还款额</dt><dd id="lc-detail-total">$0.00</dd></div>
+                <div><dt>总房产税</dt><dd id="lc-detail-tax">$0.00</dd></div>
+                <div><dt>总保险/PMI/HOA</dt><dd id="lc-detail-insurance">$0.00</dd></div>
+                <div><dt>结清日期</dt><dd id="lc-detail-payoff">-</dd></div>
+              </dl>
+            </article>
+
+            <article class="card loan-calc-compare-card">
+              <h3>月供 vs 双周供</h3>
+              <div class="loan-calc-compare-grid">
+                <div>
+                  <p class="loan-calc-eyebrow">月供</p>
+                  <strong id="lc-compare-monthly">$0.00</strong>
+                  <span id="lc-compare-monthly-date">-</span>
+                </div>
+                <div>
+                  <p class="loan-calc-eyebrow">双周供</p>
+                  <strong id="lc-compare-biweekly">$0.00</strong>
+                  <span id="lc-compare-biweekly-date">-</span>
+                </div>
+              </div>
+              <p class="loan-calc-savings">预计节省利息：<strong id="lc-compare-savings">$0.00</strong></p>
+            </article>
+          </section>
+        </div>
+
+        <section id="lc-amortization-container" class="loan-calc-amortization card" hidden>
+          <h3>还款明细表</h3>
+          <div class="loan-calc-table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>期数</th>
+                  <th>日期</th>
+                  <th>付款额</th>
+                  <th>本金</th>
+                  <th>利息</th>
+                  <th>剩余本金</th>
+                </tr>
+              </thead>
+              <tbody id="lc-amortization-body"></tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="compliance" aria-label="Mortgage compliance disclosures">
+        <h4>房贷合规披露</h4>
+        <p>
+          ProMax Lending 为 Equal Housing Lender。NMLS 消费者查询网站：
+          <a href="https://www.nmlsconsumeraccess.org/" target="_blank" rel="noopener noreferrer">nmlsconsumeraccess.org</a>。
+          NMLS ID: 2820538（待批）。ProMax Lending 在加州提供持牌房贷服务。
+        </p>
+      </div>
+      <div class="footer-row">
+        <div>
+          <strong>ProMax Lending</strong><br />
+          <span class="small">以清晰与关怀，陪伴您的房贷每一步。</span>
+        </div>
+        <div class="footer-meta">
+          <img class="ehl-logo" src="../assets/equal-housing-lender.png" alt="Equal Housing Lender" />
+          <div class="small">© <span id="year"></span> ProMax Lending. 保留所有权利。</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loan Calculator | ProMax Lending</title>
+  <meta name="description" content="Estimate monthly mortgage payments, compare monthly vs bi-weekly scenarios, and review amortization details with ProMax Lending." />
+  <link rel="icon" type="image/x-icon" href="assets/promax_favicon.ico" />
+  <link rel="stylesheet" href="assets/site.css" />
+  <link rel="canonical" href="https://www.promaxlending.com/loan-calculator.html" />
+  <link rel="alternate" hreflang="en" href="https://www.promaxlending.com/loan-calculator.html" />
+  <link rel="alternate" hreflang="zh-CN" href="https://www.promaxlending.com/zh/loan-calculator.html" />
+  <link rel="alternate" hreflang="x-default" href="https://www.promaxlending.com/loan-calculator.html" />
+</head>
+<body class="has-page-bg page-loan-calculator">
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <img class="brand-logo" src="assets/promax-logo-white.jpg" alt="ProMax Lending" />
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+      <nav id="primary-nav" class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="loan-purpose.html">Loan Purpose</a>
+        <a class="active" href="loan-programs.html">Loan Programs</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="lang-switch" aria-label="Language switcher">
+        <a class="active" href="loan-calculator.html" lang="en">EN</a>
+        <span>/</span>
+        <a href="zh/loan-calculator.html" lang="zh-CN">简体中文</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <span class="eyebrow">Loan Calculator</span>
+        <h1 class="section-title">Estimate your mortgage payment with confidence.</h1>
+        <p class="section-copy section-copy-strong">
+          Use this calculator to model monthly and bi-weekly payment scenarios. Figures are estimates for planning and do not represent a loan commitment.
+        </p>
+      </div>
+      <div class="container loan-calc-shell" data-loan-calculator data-lang="en">
+        <div class="loan-calc-grid">
+          <section class="loan-calc-panel card" aria-label="Loan inputs">
+            <h2>Loan Inputs</h2>
+            <div class="loan-calc-fields">
+              <div class="loan-calc-field">
+                <label for="lc-home-value">Home Value</label>
+                <div class="loan-calc-input-wrap">
+                  <span>$</span>
+                  <input id="lc-home-value" type="number" min="50000" step="1000" value="400000" />
+                </div>
+              </div>
+
+              <div class="loan-calc-field">
+                <label for="lc-down-payment-amount">Down Payment</label>
+                <div class="loan-calc-row-3">
+                  <div class="loan-calc-input-wrap">
+                    <span>$</span>
+                    <input id="lc-down-payment-amount" type="number" min="0" step="100" value="80000" />
+                  </div>
+                  <input id="lc-down-payment-percent" type="number" min="0" max="95" step="0.1" value="20" />
+                  <span class="loan-calc-suffix">%</span>
+                </div>
+                <input id="lc-down-payment-slider" type="range" min="0" max="95" step="0.1" value="20" />
+              </div>
+
+              <div class="loan-calc-field">
+                <label for="lc-loan-amount">Loan Amount</label>
+                <div class="loan-calc-input-wrap">
+                  <span>$</span>
+                  <input id="lc-loan-amount" type="number" value="320000" readonly />
+                </div>
+              </div>
+
+              <div class="loan-calc-field">
+                <label for="lc-interest-rate">Interest Rate</label>
+                <div class="loan-calc-row-2">
+                  <input id="lc-interest-rate" type="number" min="0.1" max="15" step="0.01" value="7.00" />
+                  <span class="loan-calc-suffix">%</span>
+                </div>
+                <input id="lc-interest-slider" type="range" min="0.1" max="15" step="0.01" value="7.00" />
+              </div>
+
+              <div class="loan-calc-field">
+                <label for="lc-loan-term">Loan Term</label>
+                <div class="loan-calc-row-2">
+                  <select id="lc-loan-term">
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="30" selected>30</option>
+                  </select>
+                  <span class="loan-calc-suffix">years</span>
+                </div>
+              </div>
+
+              <div class="loan-calc-field">
+                <label for="lc-start-month">Start Date</label>
+                <div class="loan-calc-row-2">
+                  <select id="lc-start-month">
+                    <option value="0">January</option>
+                    <option value="1">February</option>
+                    <option value="2" selected>March</option>
+                    <option value="3">April</option>
+                    <option value="4">May</option>
+                    <option value="5">June</option>
+                    <option value="6">July</option>
+                    <option value="7">August</option>
+                    <option value="8">September</option>
+                    <option value="9">October</option>
+                    <option value="10">November</option>
+                    <option value="11">December</option>
+                  </select>
+                  <input id="lc-start-year" type="number" min="2024" max="2100" step="1" value="2026" />
+                </div>
+              </div>
+
+              <div class="loan-calc-field">
+                <label for="lc-property-tax">Property Tax</label>
+                <div class="loan-calc-row-2">
+                  <input id="lc-property-tax" type="number" min="0" step="10" value="2700" />
+                  <span class="loan-calc-suffix">$/year</span>
+                </div>
+              </div>
+
+              <div class="loan-calc-field">
+                <label for="lc-pmi-rate">PMI</label>
+                <div class="loan-calc-row-2">
+                  <input id="lc-pmi-rate" type="number" min="0" max="5" step="0.01" value="1.00" />
+                  <span class="loan-calc-suffix">%</span>
+                </div>
+                <input id="lc-pmi-slider" type="range" min="0" max="5" step="0.01" value="1.00" />
+              </div>
+
+              <div class="loan-calc-field">
+                <label for="lc-home-insurance">Home Insurance</label>
+                <div class="loan-calc-row-2">
+                  <input id="lc-home-insurance" type="number" min="0" step="10" value="1500" />
+                  <span class="loan-calc-suffix">$/year</span>
+                </div>
+              </div>
+
+              <div class="loan-calc-field">
+                <label for="lc-monthly-hoa">Monthly HOA</label>
+                <div class="loan-calc-input-wrap">
+                  <span>$</span>
+                  <input id="lc-monthly-hoa" type="number" min="0" step="10" value="0" />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="loan-calc-results" aria-label="Estimated results">
+            <article class="card loan-calc-summary-card">
+              <p class="loan-calc-eyebrow">Estimated Monthly Payment</p>
+              <h2 id="lc-monthly-payment">$0.00</h2>
+              <p>Your estimated total monthly payment.</p>
+              <div class="loan-calc-mini-grid">
+                <div><span>Monthly Tax</span><strong id="lc-monthly-tax">$0.00</strong></div>
+                <div><span>Monthly Insurance</span><strong id="lc-monthly-insurance">$0.00</strong></div>
+              </div>
+            </article>
+
+            <article class="card loan-calc-breakdown-card">
+              <h3>Loan Breakdown</h3>
+              <div class="loan-calc-chart-wrap">
+                <div id="lc-breakdown-chart" class="loan-calc-donut" aria-label="Loan breakdown chart"></div>
+                <ul id="lc-breakdown-list" class="loan-calc-breakdown-list"></ul>
+              </div>
+              <button id="lc-toggle-amortization" class="btn btn-secondary" type="button">Show Amortization Table</button>
+            </article>
+
+            <article class="card loan-calc-details-card">
+              <h3>Mortgage Details</h3>
+              <dl class="loan-calc-stats">
+                <div><dt>Loan Amount</dt><dd id="lc-detail-loan">$0.00</dd></div>
+                <div><dt>Down Payment</dt><dd id="lc-detail-down">$0.00</dd></div>
+                <div><dt>Total Interest Paid</dt><dd id="lc-detail-interest">$0.00</dd></div>
+                <div><dt>Total PMT to Maturity</dt><dd id="lc-detail-total">$0.00</dd></div>
+                <div><dt>Total Tax Paid</dt><dd id="lc-detail-tax">$0.00</dd></div>
+                <div><dt>Total Home Insurance</dt><dd id="lc-detail-insurance">$0.00</dd></div>
+                <div><dt>Loan Payoff Date</dt><dd id="lc-detail-payoff">-</dd></div>
+              </dl>
+            </article>
+
+            <article class="card loan-calc-compare-card">
+              <h3>Monthly vs Bi-Weekly</h3>
+              <div class="loan-calc-compare-grid">
+                <div>
+                  <p class="loan-calc-eyebrow">Monthly</p>
+                  <strong id="lc-compare-monthly">$0.00</strong>
+                  <span id="lc-compare-monthly-date">-</span>
+                </div>
+                <div>
+                  <p class="loan-calc-eyebrow">Bi-Weekly</p>
+                  <strong id="lc-compare-biweekly">$0.00</strong>
+                  <span id="lc-compare-biweekly-date">-</span>
+                </div>
+              </div>
+              <p class="loan-calc-savings">Estimated interest savings: <strong id="lc-compare-savings">$0.00</strong></p>
+            </article>
+          </section>
+        </div>
+
+        <section id="lc-amortization-container" class="loan-calc-amortization card" hidden>
+          <h3>Amortization Schedule</h3>
+          <div class="loan-calc-table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Payment #</th>
+                  <th>Date</th>
+                  <th>Payment</th>
+                  <th>Principal</th>
+                  <th>Interest</th>
+                  <th>Balance</th>
+                </tr>
+              </thead>
+              <tbody id="lc-amortization-body"></tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="compliance" aria-label="Mortgage compliance disclosures">
+        <h4>Mortgage Compliance Disclosures</h4>
+        <p>
+          ProMax Lending is an Equal Housing Lender. NMLS Consumer Access:
+          <a href="https://www.nmlsconsumeraccess.org/" target="_blank" rel="noopener noreferrer">nmlsconsumeraccess.org</a>.
+          NMLS ID: 2820538 (pending). ProMax Lending is a licensed mortgage company in the state of California.
+        </p>
+      </div>
+      <div class="footer-row">
+        <div>
+          <strong>ProMax Lending</strong><br />
+          <span class="small">Home financing guidance with clarity and care.</span>
+        </div>
+        <div class="footer-meta">
+          <img class="ehl-logo" src="assets/equal-housing-lender.png" alt="Equal Housing Lender" />
+          <div class="small">© <span id="year"></span> ProMax Lending. All rights reserved.</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/site.js"></script>
+</body>
+</html>
