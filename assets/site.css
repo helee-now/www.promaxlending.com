@@ -32,7 +32,7 @@ body.has-page-bg {
   background-attachment: fixed, fixed;
 }
 
-body.page-home { --page-bg-image: url("site_images/pmx-sky-neighborhood.jpg"); }
+body.page-home { --page-bg-image: url("site_images/pmx-house-money-2.jpg"); }
 body.page-about { --page-bg-image: url("site_images/pmx-casual-meeting.jpg"); }
 body.page-loan-purpose { --page-bg-image: url("site_images/pmx-big-house-key.jpg"); }
 body.page-loan-programs { --page-bg-image: url("site_images/pmx-work.jpg"); }
