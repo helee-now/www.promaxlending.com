@@ -124,6 +124,18 @@
       amortizationHide: lang === "zh" ? "隐藏还款明细表" : "Hide Amortization Table",
       monthlyLabel: lang === "zh" ? "月供结清日期" : "Monthly payoff date",
       biweeklyLabel: lang === "zh" ? "双周供结清日期" : "Bi-weekly payoff date",
+      benchmarkLoading:
+        lang === "zh"
+          ? "基准利率：正在加载最新 PMMS 30 年固定平均值..."
+          : "Benchmark rate: loading latest PMMS 30-year fixed...",
+      benchmarkApplied:
+        lang === "zh"
+          ? "基准利率：PMMS 30 年固定平均值 {rate}%（截至 {date}）"
+          : "Benchmark rate: PMMS 30-year fixed average {rate}% (as of {date})",
+      benchmarkFallback:
+        lang === "zh"
+          ? "基准利率暂不可用，使用默认利率 {rate}%"
+          : "Benchmark unavailable, using default rate {rate}%",
     };
 
     const elements = {
@@ -134,6 +146,7 @@
       loanAmount: calculatorRoot.querySelector("#lc-loan-amount"),
       interestRate: calculatorRoot.querySelector("#lc-interest-rate"),
       interestSlider: calculatorRoot.querySelector("#lc-interest-slider"),
+      rateNote: calculatorRoot.querySelector("#lc-rate-note"),
       loanTerm: calculatorRoot.querySelector("#lc-loan-term"),
       startMonth: calculatorRoot.querySelector("#lc-start-month"),
       startYear: calculatorRoot.querySelector("#lc-start-year"),
@@ -249,6 +262,58 @@
         monthsUsed,
         rows,
       };
+    };
+
+    const setBenchmarkNote = (text) => {
+      if (elements.rateNote) {
+        elements.rateNote.textContent = text;
+      }
+    };
+
+    let userEditedInterest = false;
+
+    const fetchPmmsBenchmarkRate = async () => {
+      const endpoint =
+        calculatorRoot.getAttribute("data-rates-endpoint") ||
+        "https://promaxlending-settings.vercel.app/api/rates?series=pmms30";
+
+      setBenchmarkNote(labels.benchmarkLoading);
+
+      try {
+        const response = await fetch(endpoint, {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error(`Rate endpoint failed with ${response.status}`);
+        }
+
+        const data = await response.json();
+        const rate = Number.parseFloat(data.rate);
+        if (!Number.isFinite(rate)) {
+          throw new Error("Rate payload missing numeric value");
+        }
+
+        const normalizedRate = clamp(rate, 0.1, 15);
+        if (!userEditedInterest) {
+          elements.interestRate.value = normalizedRate.toFixed(2);
+          elements.interestSlider.value = normalizedRate.toFixed(2);
+          recalculate();
+        }
+
+        const asOf = String(data.as_of || "").trim() || "-";
+        setBenchmarkNote(
+          labels.benchmarkApplied
+            .replace("{rate}", normalizedRate.toFixed(2))
+            .replace("{date}", asOf)
+        );
+      } catch (_error) {
+        const fallbackRate = clamp(asNumber(elements.interestRate.value, 5.7), 0.1, 15);
+        setBenchmarkNote(labels.benchmarkFallback.replace("{rate}", fallbackRate.toFixed(2)));
+      }
     };
 
     const updateBreakdown = (parts) => {
@@ -417,6 +482,19 @@
     syncInterest(elements.interestRate);
     syncPmi(elements.pmiRate);
     recalculate();
+
+    if (elements.interestRate) {
+      elements.interestRate.addEventListener("input", () => {
+        userEditedInterest = true;
+      });
+    }
+    if (elements.interestSlider) {
+      elements.interestSlider.addEventListener("input", () => {
+        userEditedInterest = true;
+      });
+    }
+
+    fetchPmmsBenchmarkRate();
   }
 
   const nav = document.querySelector(".nav");

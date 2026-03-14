@@ -569,6 +569,13 @@ header {
   margin-top: 8px;
 }
 
+.loan-calc-rate-note {
+  margin: 8px 2px 0;
+  color: rgba(95, 107, 122, 0.95);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
 .loan-calc-results {
   display: grid;
   gap: 16px;
