@@ -35,7 +35,10 @@
         "/api/contact";
 
       const formData = new FormData(contactForm);
-      const pageLanguage = (document.documentElement.lang || "en").trim() || "en";
+      const explicitPageLanguage = contactForm.getAttribute("data-page-language");
+      const htmlLanguage = document.documentElement.lang || "";
+      const pathLanguage = window.location.pathname.includes("/zh/") ? "zh-CN" : "en";
+      const pageLanguage = (explicitPageLanguage || htmlLanguage || pathLanguage || "en").trim() || "en";
       const payload = {
         first_name: formData.get("first_name"),
         last_name: formData.get("last_name"),
