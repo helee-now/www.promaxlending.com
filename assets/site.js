@@ -438,8 +438,9 @@
       if (!element) {
         return;
       }
+      const shouldSyncOnInput = element.type === "range";
       element.addEventListener("input", () => {
-        if (syncFn) {
+        if (syncFn && shouldSyncOnInput) {
           syncFn(element);
         }
         recalculate();
