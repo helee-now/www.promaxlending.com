@@ -488,6 +488,13 @@ header {
   margin-bottom: 6px;
 }
 
+.loan-calc-lock {
+  margin-left: 4px;
+  font-size: 11px;
+  color: var(--muted);
+  vertical-align: text-top;
+}
+
 .loan-calc-input-wrap {
   display: grid;
   grid-template-columns: 28px 1fr;
@@ -542,6 +549,15 @@ header {
   font: inherit;
   font-size: 17px;
   padding: 10px 12px;
+}
+
+.loan-calc-row-2 input[readonly],
+.loan-calc-row-3 input[readonly],
+.loan-calc-input-wrap input[readonly] {
+  background: #f3f6fa;
+  color: var(--muted);
+  cursor: not-allowed;
+  font-weight: 600;
 }
 
 .loan-calc-row-2 input + input {
