@@ -35,6 +35,14 @@
         "/api/contact";
 
       const formData = new FormData(contactForm);
+      const turnstileToken = String(formData.get("cf-turnstile-response") || "").trim();
+      if (!turnstileToken) {
+        setStatus(
+          getMessage("msgTurnstile", "Please complete the security check before submitting."),
+          "is-error"
+        );
+        return;
+      }
       const explicitPageLanguage = contactForm.getAttribute("data-page-language");
       const htmlLanguage = document.documentElement.lang || "";
       const pathLanguage = window.location.pathname.includes("/zh/") ? "zh-CN" : "en";
@@ -48,6 +56,7 @@
         phone: formData.get("phone"),
         message: formData.get("message"),
         website: formData.get("website"),
+        turnstile_token: turnstileToken,
         contact_consent: formData.get("contact_consent") === "on",
         page_language: pageLanguage,
         source_page: sourcePage,
@@ -86,6 +95,9 @@
         }
 
         contactForm.reset();
+        if (window.turnstile && typeof window.turnstile.reset === "function") {
+          window.turnstile.reset();
+        }
         setStatus(
           getMessage("msgSuccess", "Thank you. Your request has been sent successfully."),
           "is-success"
@@ -98,6 +110,9 @@
           ),
           "is-error"
         );
+        if (window.turnstile && typeof window.turnstile.reset === "function") {
+          window.turnstile.reset();
+        }
       } finally {
         if (submitButton) {
           submitButton.disabled = false;

@@ -62,7 +62,7 @@
               <a href="terms.html">使用条款</a>
             </div>
 
-            <form class="contact-form" action="https://promaxlending-settings.vercel.app/api/contact" data-api-endpoint="https://promaxlending-settings.vercel.app/api/contact" data-page-language="zh-CN" data-msg-submitting="正在提交您的请求..." data-msg-success="感谢您的提交，我们已成功收到您的咨询请求。" data-msg-failure="暂时无法提交请求，请致电 (949) 288-3016 或发送邮件至 info@promaxlending.com。" method="post" novalidate>
+            <form class="contact-form" action="https://promaxlending-settings.vercel.app/api/contact" data-api-endpoint="https://promaxlending-settings.vercel.app/api/contact" data-page-language="zh-CN" data-msg-submitting="正在提交您的请求..." data-msg-success="感谢您的提交，我们已成功收到您的咨询请求。" data-msg-failure="暂时无法提交请求，请致电 (949) 288-3016 或发送邮件至 info@promaxlending.com。" data-turnstile-site-key="0x4AAAAAADm_r6qEmN52ydnf" data-msg-turnstile="请先完成人机验证后再提交。" method="post" novalidate>
               <div class="honeypot-field">
                 <label for="website">网站</label>
                 <input id="website" name="website" type="text" autocomplete="off" tabindex="-1" />
@@ -103,6 +103,10 @@
                   提交此表单即表示您同意 ProMax Lending 通过电话与邮件就您的咨询与您联系。是否同意联系并不构成获得贷款或服务的前提条件。请阅读我们的 <a href="privacy-policy.html">隐私政策</a> 与 <a href="terms.html">使用条款</a>。
                 </span>
               </label>
+
+              <div class="turnstile-wrap" aria-label="安全验证">
+                <div class="cf-turnstile" data-sitekey="0x4AAAAAADm_r6qEmN52ydnf" data-response-field-name="cf-turnstile-response"></div>
+              </div>
 
               <button class="btn btn-primary" type="submit">提交咨询</button>
               <p class="form-status" data-form-status role="status" aria-live="polite"></p>
@@ -180,6 +184,7 @@
     </div>
   </footer>
 
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <script src="../assets/site.js"></script>
 </body>
 </html>

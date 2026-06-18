@@ -934,6 +934,11 @@ header {
   text-underline-offset: 2px;
 }
 
+.turnstile-wrap {
+  display: flex;
+  justify-content: flex-start;
+}
+
 .contact-details-card p {
   margin-bottom: 14px;
   line-height: 1.5;

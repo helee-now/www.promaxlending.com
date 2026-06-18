@@ -62,7 +62,7 @@
               <a href="terms.html">Terms of Use</a>
             </div>
 
-            <form class="contact-form" action="https://promaxlending-settings.vercel.app/api/contact" data-api-endpoint="https://promaxlending-settings.vercel.app/api/contact" data-page-language="en" method="post" novalidate>
+            <form class="contact-form" action="https://promaxlending-settings.vercel.app/api/contact" data-api-endpoint="https://promaxlending-settings.vercel.app/api/contact" data-page-language="en" data-turnstile-site-key="0x4AAAAAADm_r6qEmN52ydnf" data-msg-turnstile="Please complete the security check before submitting." method="post" novalidate>
               <div class="honeypot-field">
                 <label for="website">Website</label>
                 <input id="website" name="website" type="text" autocomplete="off" tabindex="-1" />
@@ -103,6 +103,10 @@
                   By submitting this form, you consent to ProMax Lending contacting you by email and phone regarding your inquiry. Consent is not a condition of any loan or service. View our <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms.html">Terms and Conditions</a>.
                 </span>
               </label>
+
+              <div class="turnstile-wrap" aria-label="Security verification">
+                <div class="cf-turnstile" data-sitekey="0x4AAAAAADm_r6qEmN52ydnf" data-response-field-name="cf-turnstile-response"></div>
+              </div>
 
               <button class="btn btn-primary" type="submit">Ready to Submit</button>
               <p class="form-status" data-form-status role="status" aria-live="polite"></p>
@@ -180,6 +184,7 @@
     </div>
   </footer>
 
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <script src="assets/site.js"></script>
 </body>
 </html>
